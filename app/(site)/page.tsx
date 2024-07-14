@@ -32,7 +32,7 @@ export default function Home() {
                 {
                     featured_clips.map((clip, idx) => {
                         const targetScale = 1 - (featured_clips.length - idx) * 0.05;
-                        return (<FeaturedClip clip={clip} i={idx} range={[idx * 0.1, 1]} targetScale={targetScale} progress={scrollYProgress} />);
+                        return (<FeaturedClip key={idx} clip={clip} i={idx} range={[idx * 0.1, 1]} targetScale={targetScale} progress={scrollYProgress} />);
                     })
                 }
             </div>

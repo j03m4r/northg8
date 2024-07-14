@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useAnimationFrame } from "framer-motion";
 
 const AnimatedTitle = () => {
-    const words = ["North G8", "ng8", "northg8", "north g8"];
+    const words = ["North G8", "NG8", "northg8", "north g8"];
     const [displayText, setDisplayText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
