@@ -13,7 +13,10 @@ interface props {
     progress: MotionValue<number>;
 };
 
-const FeaturedClip: React.FC<props> = ({
+// Parallaxed feated clip on the landing page 
+// Scales based on index. Higher index means it doesn't scale until later, lower means it scales at a sooner starting time.
+// Top position increases with index as well
+const ParallaxClip: React.FC<props> = ({
     clip, i, range, targetScale, progress
 }) => {
     const scale = useTransform(progress, range, [1, targetScale]);
@@ -24,10 +27,9 @@ const FeaturedClip: React.FC<props> = ({
                 <source src={clip.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            <div className="text-xl absolute opacity-0 duration-200 transition ease-in-out text-warm-white top-2 left-2">Rite</div>
         </motion.div>
 
     );
 }
 
-export default FeaturedClip;
+export default ParallaxClip;

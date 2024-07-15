@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useAnimationFrame } from "framer-motion";
 
+// Animated title to show on the landing page
 const AnimatedTitle = () => {
-    const words = ["North G8", "NG8", "northg8", "north g8"];
+    const words = ["North G8", "NG8", "northg8", "North Gate"];
     const [displayText, setDisplayText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +12,13 @@ const AnimatedTitle = () => {
     const intervalDuration = 200;
     const delayDuration = 10000; // 5 seconds
 
-   useEffect(() => {
+    /* 
+     * This is the main code for this animated title:
+     * First we have a delay of 5 seconds (10000 ms) in between the animation
+     * When the animation starts we deconstruct the existing text in the title (like it's being deleted away char by char)
+     * Then we start reconstructing the title with the new randomly chosen title text (like it's being typed out char by char)
+     * */     
+    useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
 
         if (isDelay) {
@@ -57,7 +63,7 @@ const AnimatedTitle = () => {
             clearTimeout(interval);
         };
     }, [isDeleting, currentIndex, newText, isDelay, words]);
-   
+
     return (
         <h1 className="text-9xl font-semibold text-typography-black">
             {displayText}

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
         colors: {
-            "typography-black": "#171D08",
+            "typography-black": "#00070D",
             "warm-white": "#F8F7F4",
         },
     },

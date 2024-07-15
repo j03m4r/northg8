@@ -10,3 +10,49 @@ body,
   color-scheme: light;
 }
 
+.transitionColumn {
+    width: 100%;
+    top: 100%;
+    background-color: #00070D;
+    position: relative;
+}
+
+.transitionEnter {
+    height: 100%;
+    animation: enterAnimation 0.5s ease-in-out forwards;
+}
+
+.transitionEnterDelayed {
+    height: 100%;
+    animation: enterAnimation 0.5s ease-in-out 0.25s forwards;
+}
+
+.transitionExit {
+    animation: exitAnimation 0.5s ease-in-out forwards;
+}
+
+.transitionExitDelayed {
+    animation: exitAnimation 0.5s ease-in-out 0.25s forwards;
+}
+
+@keyframes enterAnimation {
+    from {
+        height: 100%;
+        top: 100%;
+    }
+    to {
+        height: 100%;
+        top: 0;
+    }
+}
+
+@keyframes exitAnimation {
+    from {
+        top: 0;
+        height: 100%;
+    }
+    to {
+        top: 0;
+        height: 0;
+    }
+}
