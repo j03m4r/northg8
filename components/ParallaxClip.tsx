@@ -1,9 +1,6 @@
 "use client";
+import { Clip } from "@/types";
 import { motion, MotionValue, useTransform } from "framer-motion";
-
-export type Clip = {
-    src: string;
-}
 
 interface props {
     clip: Clip;

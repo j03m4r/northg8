@@ -1,17 +1,13 @@
 "use client";
 import AnimatedTitle from "@/components/typography/AnimatedTitle";
-import ParallaxClip, { Clip } from "@/components/ParallaxClip";
+import ParallaxClip from "@/components/ParallaxClip";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
-import Link from "next/link";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import SectionHeader from "@/components/typography/SectionHeader";
 import NavigationButton from "@/components/buttons/NavigationButton";
-
-export type NavigationLink = {
-    href: string;
-    title: string;
-};
+import TransitionLink from "@/components/utils/TransitionLink";
+import { NavigationLink, Clip } from "@/types";
 
 const featured_clips: Clip[] = [
     {
@@ -60,8 +56,8 @@ export default function Home() {
                             })
                         }
                     </div>
-                    <Link href="films/rite" className="min-h-[25vh] text-typography-black hover:text-warm-white relative group
-                ease-in-out z-20 transition duration-300">
+                    <TransitionLink href="films/rite" className="min-h-[25vh] text-typography-black hover:text-warm-white relative group
+                    ease-in-out z-20 transition duration-300">
                         <div className="flex flex-col justify-between gap-y-6 p-6 border-b border-typography-black">
                             <div className="flex flex-row justify-between pr-4 items-center w-full">
                                 <h1 className="font-semibold text-5xl">Rite</h1>
@@ -72,8 +68,8 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="absolute flex -z-10 h-0 w-full group-hover:h-full bottom-0 bg-typography-black group-hover:border border-typography-black duration-300 ease-in-out" />
-                    </Link>
-                    <div className="p-6 flex flex-col gap-y-6">
+                    </TransitionLink>
+                    <div className="p-6 flex flex-col gap-y-6 text-typography-black">
                         <SectionHeader>
                             About North G8
                         </SectionHeader>

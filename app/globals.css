@@ -5,9 +5,11 @@
 html,
 body,
 :root {
-  height: 100%;
-  background-color: #F8F7F4;
-  color-scheme: light;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #F8F7F4;
+    color-scheme: light;
 }
 
 .transitionColumn {
@@ -40,6 +42,7 @@ body,
         height: 100%;
         top: 100%;
     }
+
     to {
         height: 100%;
         top: 0;
@@ -51,6 +54,7 @@ body,
         top: 0;
         height: 100%;
     }
+
     to {
         top: 0;
         height: 0;

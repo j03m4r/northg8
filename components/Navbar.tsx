@@ -2,7 +2,7 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge';
 import { usePathname } from 'next/navigation';
-import { NavigationLink } from '@/app/(site)/page';
+import { NavigationLink } from '@/types';
 import TransitionLink from './utils/TransitionLink';
 
 const navigation_links: NavigationLink[] = [
@@ -24,7 +24,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <div className={twMerge("fixed z-20 w-full flex justify-between items-center px-6 py-3", pathname == "/" && "hidden")}>
+        <div className={twMerge("fixed z-20 w-full flex justify-between items-center px-6 py-3 mix-blend-difference text-warm-white", pathname == "/" && "hidden")}>
             <TransitionLink href="/" className="hover:underline">
                 Home
             </TransitionLink>
