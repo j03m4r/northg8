@@ -2,12 +2,13 @@
 import AnimatedTitle from "@/components/typography/AnimatedTitle";
 import ParallaxClip from "@/components/ParallaxClip";
 import { useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import SectionHeader from "@/components/typography/SectionHeader";
 import NavigationButton from "@/components/buttons/NavigationButton";
 import TransitionLink from "@/components/utils/TransitionLink";
 import { NavigationLink, Clip } from "@/types";
+import Lenis from "lenis";
 
 const featured_clips: Clip[] = [
     {
@@ -42,6 +43,17 @@ export default function Home() {
         target: container,
         offset: ["start start", "end end"]
     });
+
+    useEffect(() => {
+        const lenis = new Lenis()
+
+        function raf(time: number) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    }, [])
 
     return (
         <div className="flex w-full">

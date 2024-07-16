@@ -10,6 +10,7 @@ export default function FilmsPage() {
     const [activeFilm, setActiveFilm] = useState(films[0].title);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+
     const handleClick = (title: string) => {
         const filmElement = filmRefs.current[title];
         if (filmElement) {
@@ -70,7 +71,7 @@ export default function FilmsPage() {
                             className="snap-center w-full min-h-screen flex justify-center items-center"
                             ref={(el) => { filmRefs.current[film.title] = el; }}
                         >
-                            <TransitionLink href={`/films/${film.title}`} className="group w-4/5 xl:w-3/5 relative">
+                            <TransitionLink href={`/films/${film.title}`} className="group w-4/5 2xl:w-3/5 relative">
                                 <video className="w-full" loop muted autoPlay preload="none">
                                     <source src={film.featured_clips[0].src} type="video/mp4" />
                                     Your browser does not support the video tag.
