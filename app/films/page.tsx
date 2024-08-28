@@ -16,8 +16,8 @@ export default function FilmsPage() {
     const isInView = useInView(ref)
 
     return (
-        <main className="bg-warm-white text-typography-black 2xl:text-xl w-full h-full pt-[10vh] overflow-hidden" > {/* Adjusted to h-full and overflow-hidden */}
-            <div ref={ref} className={twMerge("absolute w-screen h-screen -top-full pt-[10vh] z-20 bg-warm-white justify-start items-start transition ease-in-out duration-500", isOpen ? "flex flex-col translate-y-full" : "-translate-y-full")}>
+        <main className="bg-warm-white text-typography-black 2xl:text-xl w-full h-full pt-[10vh] overflow-hidden"> {/* Adjusted to h-full and overflow-hidden */}
+            <div ref={ref} className={twMerge("absolute w-screen h-screen -top-full pt-[10vh] z-20 bg-warm-white justify-start items-start transition ease-in-out duration-500 flex flex-col", isOpen ? "translate-y-full" : "-translate-y-full")}>
                 {films.map((film, idx) => (
                     <motion.button key={`film_selection_${idx}`} className="py-3 px-6 flex justify-between items-center w-full opacity-0" onClick={() => { setSelectedFilm(film), setActiveFilm(film), onClose() }}
                         variants={opacity} initial="initial" custom={idx+1}
@@ -54,11 +54,11 @@ export default function FilmsPage() {
                     })}
                 </ul>
             </div>
-            <div className="lg:border-l lg:border-typography-black h-[90vh] w-full lg:w-3/5 absolute lg:left-[40%] flex flex-col items-center justify-between overflow-hidden">
+            <div className="lg:border-l lg:border-typography-black h-[90vh] w-full lg:w-3/5 absolute lg:left-[40%] flex flex-col items-center justify-start overflow-hidden">
                 <div key={`film_clip_${activeFilm.id}`}
-                    className="min-h-[90vh] w-full h-full flex flex-col justify-center items-start"
+                    className="min-h-[90vh] w-full h-full flex flex-col justify-center items-start pb-[15vh] md:pb-0"
                 >
-                    <video className="p-6 md:p-0 mb-[10vh] md:mb-0 w-full" loop muted autoPlay preload="none">
+                    <video className="p-6 md:p-0 w-full" loop muted autoPlay preload="none">
                         <source src={activeFilm.featured_clips[0].src} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>

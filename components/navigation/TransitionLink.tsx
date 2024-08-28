@@ -36,7 +36,7 @@ const TransitionLink: FC<TransitionLinkProps> = ({
 
         await sleep(750);
         router.push(href);
-        await sleep(400);
+        await sleep(750);
 
         // Hack to keep the delayed column 2 from showing background for a split second
         transitionColumn1.style.top = "0";
