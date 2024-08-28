@@ -65,15 +65,15 @@ export default function FilmDetails({ params }: FilmPageParams) {
                             <div className="flex flex-col gap-y-3 w-full">
                                 <h2 className="text-xl font-semibold">More North G8</h2>
                                 <div className="text-md flex flex-col w-full">
-                                    <Link className="hover:bg-typography-black hover:text-warm-white w-full" href="/instalink">Youtube</Link>
-                                    <Link className="hover:bg-typography-black hover:text-warm-white w-full" href="/instalink">Instagram</Link>
-                                    <Link className="hover:bg-typography-black hover:text-warm-white w-full" href="/twitter">Twitter</Link>
+                                    <Link className="hover:bg-warm-white hover:text-typography-black w-full" href="/instalink">Youtube</Link>
+                                    <Link className="hover:bg-warm-white hover:text-typography-black w-full" href="/instalink">Instagram</Link>
+                                    <Link className="hover:bg-warm-white hover:text-typography-black w-full" href="/twitter">Twitter</Link>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-y-3">
                                 <h2 className="text-xl font-semibold">Contact us</h2>
                                 <div className="text-md flex flex-col w-full">
-                                    <Link className="hover:bg-typography-black hover:text-warm-white w-full" href="/email">email@example.com</Link>
+                                    <Link className="hover:bg-warm-white hover:text-typography-black w-full" href="/email">email@example.com</Link>
                                 </div>
                             </div>
                         </div>

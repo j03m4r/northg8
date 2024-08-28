@@ -17,9 +17,9 @@ export default function FilmsPage() {
 
     return (
         <main className="bg-warm-white text-typography-black 2xl:text-xl w-full h-full pt-[10vh] overflow-hidden"> {/* Adjusted to h-full and overflow-hidden */}
-            <div ref={ref} className={twMerge("absolute w-screen h-screen -top-full pt-[10vh] z-20 bg-warm-white justify-start items-start transition ease-in-out duration-500 flex flex-col", isOpen ? "translate-y-full" : "-translate-y-full")}>
+            <div ref={ref} className={twMerge("fixed w-screen h-[90vh] -top-[90vh] py-6 px-6 gap-y-6 z-20 bg-warm-white justify-start items-start transition ease-in-out duration-500 flex flex-col", isOpen ? "translate-y-[100vh]" : "-translate-y-[100vh]")}>
                 {films.map((film, idx) => (
-                    <motion.button key={`film_selection_${idx}`} className="py-3 px-6 flex justify-between items-center w-full opacity-0" onClick={() => { setSelectedFilm(film), setActiveFilm(film), onClose() }}
+                    <motion.button key={`film_selection_${idx}`} className="flex justify-between items-center w-full opacity-0" onClick={() => { setSelectedFilm(film), setActiveFilm(film), onClose() }}
                         variants={opacity} initial="initial" custom={idx+1}
                         animate={isInView ? "inView" : "outView"}
                     >
