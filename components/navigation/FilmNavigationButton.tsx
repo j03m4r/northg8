@@ -22,7 +22,7 @@ const FilmNavigationButton: React.FC<props> = ({
                     <FaLongArrowAltUp className="2xl:hidden z-20 opacity-0 group-hover:opacity-100 rotate-90 -translate-x-full group-hover:translate-x-0 duration-300 transition ease-in-out text-typography-black group-hover:text-warm-white" size={36} />
                     <FaLongArrowAltUp className="hidden 2xl:block z-20 opacity-0 group-hover:opacity-100 rotate-90 -translate-x-full group-hover:translate-x-0 duration-300 transition ease-in-out text-typography-black group-hover:text-warm-white" size={48} />
                 </div>
-                <p>
+                <p className="truncate">
                     {description}
                 </p>
             </div>

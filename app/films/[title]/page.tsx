@@ -54,8 +54,8 @@ export default function FilmDetails({ params }: FilmPageParams) {
                                 Clips
                             </SectionHeader>
                             <div className="flex flex-col gap-y-12">
-                                {film.youtube_clips.map((youtube_clip) => 
-                                    <FilmYoutubeClip youtubeId={youtube_clip.youtube_id} title={youtube_clip.title} description={youtube_clip.description || ""} />
+                                {film.youtube_clips.map((youtube_clip, idx) => 
+                                    <FilmYoutubeClip key={`youtube_clip_${idx}`} youtubeId={youtube_clip.youtube_id} title={youtube_clip.title} description={youtube_clip.description || ""} />
                                 )}
                             </div>
                         </div>

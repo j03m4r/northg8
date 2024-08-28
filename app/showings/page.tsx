@@ -11,7 +11,7 @@ export default function FilmsPage() {
         <main className="text-typography-black bg-warm-white 2xl:text-xl flex flex-col w-full h-full pt-[10vh]"> {/* Adjusted to h-full and overflow-hidden */}
             {
                 films.map((film) => (
-                    <div key={`film_showing_${film.id}`} className="flex flex-col gap-y-6 mt-6">
+                    <div key={`film_${film.id}`} className="flex flex-col gap-y-6 mt-6">
                         <SectionHeader className={twMerge("ml-12", film.showings.length === 0 && "hidden")}>
                             {film.title}
                         </SectionHeader>
@@ -20,7 +20,7 @@ export default function FilmsPage() {
                             film.showings.map((showing, idx) => {
                                 if (showing.date > new Date()) {
                                     return (
-                                        <div className="flex gap-x-6 w-full h-fit items-center justify-start gap-y-6 p-6">
+                                        <div key={`showing_${idx}`} className="flex gap-x-6 w-full h-fit items-center justify-start gap-y-6 p-6">
                                             <SectionHeader>
                                                 {idx + 1}.
                                             </SectionHeader>
