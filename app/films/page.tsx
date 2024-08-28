@@ -54,11 +54,11 @@ export default function FilmsPage() {
                     })}
                 </ul>
             </div>
-            <div className="lg:border-l lg:border-typography-black h-[90vh] w-full lg:w-3/5 absolute lg:left-[40%] flex flex-col items-center justify-center overflow-hidden">
+            <div className="lg:border-l lg:border-typography-black h-[90vh] w-full lg:w-3/5 absolute lg:left-[40%] flex flex-col items-center justify-between overflow-hidden">
                 <div key={`film_clip_${activeFilm.id}`}
                     className="min-h-[90vh] w-full h-full flex flex-col justify-center items-start"
                 >
-                    <video className="p-6 md:p-0 w-full" loop muted autoPlay preload="none">
+                    <video className="p-6 md:p-0 mb-[10vh] md:mb-0 w-full" loop muted autoPlay preload="none">
                         <source src={activeFilm.featured_clips[0].src} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
