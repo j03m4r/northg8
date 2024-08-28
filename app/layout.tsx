@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Dosis } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navigation/Navbar";
 
 const dosis = Dosis({ subsets: ["latin"] });
 
@@ -18,9 +18,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={dosis.className}>
-                <div className="flex fixed top-0 left-0 pointer-events-none h-screen w-screen z-30">
+                <div className="flex fixed top-0 left-0 pointer-events-none h-screen w-screen z-40">
                     <div id="transition-column-1" className="transitionColumn" />
-                    <div id="transition-column-2" className="transitionColumn" />
+                    <div id="transition-column-2" className="hidden lg:block transitionColumn" />
                 </div>
                 <Navbar />
                 {children}

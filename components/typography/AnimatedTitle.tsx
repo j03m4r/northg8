@@ -65,7 +65,7 @@ const AnimatedTitle = () => {
     }, [isDeleting, currentIndex, newText, isDelay, words]);
 
     return (
-        <h1 className="text-9xl font-semibold text-typography-black">
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-semibold text-typography-black">
             {displayText}
         </h1>
     );
