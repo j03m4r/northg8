@@ -54,8 +54,10 @@ export default async function FilmDetails({ params }: FilmPageParams) {
                             <SectionHeader>
                                 Clips
                             </SectionHeader>
+                            {/* @ts-ignore */}
                             {film.youtube_clip ? (
                                 <div className="flex flex-col gap-y-12">
+                                    {/* @ts-ignore */}
                                     {film.youtube_clips.map((youtube_clip, idx) =>
                                         <FilmYoutubeClip key={`youtube_clip_${idx}`} youtubeId={youtube_clip.youtube_id} title={youtube_clip.title} description={youtube_clip.description || ""} />
                                     )}

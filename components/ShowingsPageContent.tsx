@@ -14,13 +14,16 @@ export default function ShowingsPageContent({ films }: { films: Film[] }) {
                 films.map((film, idx) => (
                     <div key={`film_${film.id}`} className="flex flex-col gap-y-6 mt-6">
                         <div className="w-full flex items-center justify-start">
+                            {/* @ts-ignore */}
                             <SectionHeader className={twMerge("ml-12 w-full", film.showings.length === 0 && "hidden", idx < films.length - 1 && "pb-6 border-b border-typography-black")}>
                                 {film.title}
                             </SectionHeader>
                         </div>
                         <div className="flex flex-col w-full justify-start items-center">
                             {
+                                // @ts-ignore
                                 film.showings.length !== 0 &&
+                                // @ts-ignore
                                 film.showings.map((showing, idx) => {
                                     if (showing.date > new Date()) {
                                         return (
