@@ -13,7 +13,7 @@ export default function SignInForm() {
                 <label className='block text-sm text-typography-black font-medium'>Password</label>
                 <input type="password" placeholder="Password" id="passwordInput" name="password" className='border border-typography-black mt-2 w-full bg-transparent rounded-md px-6 py-3' />
             </div>
-            <SubmitButton title='Sign in'/>
+            <SubmitButton title='Sign in' disabled={false} />
         </form>
     )
 }
