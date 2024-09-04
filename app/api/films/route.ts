@@ -1,16 +1,6 @@
 import { prisma } from "@/prisma";
 import { NextResponse } from "next/server";
 
-export async function GET() {
-    const films = await prisma.film.findMany();
-
-    if (!films) {
-        return [];
-    }
-
-    return films;
-}
-
 export type YouTubeClip = {
     title: string;
     description: string;
