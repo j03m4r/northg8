@@ -1,15 +1,20 @@
 "use client";
+import type { FC } from 'react';
+import { Film } from '@prisma/client';
 import React, { useRef, useState } from "react"
-import { Film, films } from "@/types";
 import { twMerge } from "tailwind-merge";
 import FilmNavigationButton from "@/components/navigation/FilmNavigationButton";
 import SectionHeader from "@/components/typography/SectionHeader";
 import useSelectedFilmMenu from "@/hooks/useSelectFilmMenu";
 import { motion, useInView } from "framer-motion";
-import { opacity } from "@/animations/textAnimations";
+import { opacity } from "@/components/animations/textAnimations";
 import { FaCircle } from "react-icons/fa";
 
-export default function FilmsPage() {
+interface FilmsPageContentProps {
+    films: Film[];
+};
+
+const FilmsPageContent: FC<FilmsPageContentProps> = ({ films }) => {
     const [activeFilm, setActiveFilm] = useState<Film>(films[0]);
     const { isOpen, onClose, setSelectedFilm } = useSelectedFilmMenu();
     const ref = useRef<HTMLDivElement>(null);
@@ -20,13 +25,13 @@ export default function FilmsPage() {
             <div ref={ref} className={twMerge("fixed w-screen h-[90vh] -top-[90vh] py-6 px-6 gap-y-6 z-20 bg-warm-white justify-start items-start transition ease-in-out duration-500 flex flex-col", isOpen ? "translate-y-[100vh]" : "-translate-y-[100vh]")}>
                 {films.map((film, idx) => (
                     <motion.button key={`film_selection_${idx}`} className="flex justify-between items-center w-full opacity-0" onClick={() => { setSelectedFilm(film), setActiveFilm(film), onClose() }}
-                        variants={opacity} initial="initial" custom={idx+1}
+                        variants={opacity} initial="initial" custom={idx + 1}
                         animate={isInView ? "inView" : "outView"}
                     >
                         <SectionHeader className="w-full flex justify-start">
                             {film.title}
                         </SectionHeader>
-                        <FaCircle size={24} className={activeFilm.title === film.title ? "block" : "hidden"}/>
+                        <FaCircle size={24} className={activeFilm.title === film.title ? "block" : "hidden"} />
                     </motion.button>
                 ))}
             </div>
@@ -59,12 +64,13 @@ export default function FilmsPage() {
                     className="min-h-[90vh] w-full h-full flex flex-col justify-center items-start pb-[15vh] md:pb-0"
                 >
                     <video className="p-6 md:p-0 w-full" loop muted autoPlay preload="none">
-                        <source src={activeFilm.featured_clips[0].src} type="video/mp4" />
+                        <source src={activeFilm.featured_clips[0]} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <FilmNavigationButton title={activeFilm.title} description={activeFilm.description} />
+                    <FilmNavigationButton film={activeFilm} />
                 </div>
             </div>
         </main>
     );
 }
+export default FilmsPageContent;

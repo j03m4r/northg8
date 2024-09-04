@@ -1,9 +1,8 @@
 "use client";
-import { Clip } from "@/types";
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface props {
-    clip: Clip;
+    clip: string;
     i: number;
     range: number[];
     targetScale: number;
@@ -21,7 +20,7 @@ const ParallaxClip: React.FC<props> = ({
     return (
         <motion.div className="w-full group sticky" style={{ scale: scale, top: `calc(0% + ${i * 25}px)`}}>
             <video className="w-full" loop muted autoPlay preload="none">
-                <source src={clip.src} type="video/mp4" />
+                <source src={clip} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </motion.div>

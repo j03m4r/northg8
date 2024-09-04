@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Dosis } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Navbar from "@/components/navigation/Navbar";
 
 const dosis = Dosis({ subsets: ["latin"] });

@@ -117,8 +117,3 @@ export function dateToString(date: Date) {
 
     return `${year}/${month}/${day} AT ${hours}:${minutes}`;
 };
-
-export function getFilmByTitle(title: string) {
-    const film = films.find((film) => film.title.toLowerCase() === title.toLowerCase());
-    return film;
-};
