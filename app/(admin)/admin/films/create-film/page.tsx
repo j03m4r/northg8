@@ -5,7 +5,7 @@ import SubmitButton from '@/components/buttons/SubmitButton'
 import { SubmitHandler, useForm } from "react-hook-form";
 import { postFilmClip } from '@/actions/postFilmClip';
 import StyledFileInput from '@/components/forms/inputs/StyledFileInput';
-import { FaPlus } from 'react-icons/fa';
+import { FaCheck, FaPlus } from 'react-icons/fa';
 import DatePickerInput from '@/components/forms/inputs/DatePickerInput';
 import { FilmData, YouTubeClip, Showing } from '@/actions/postFilm';
 import { useRouter } from 'next/navigation';
@@ -30,8 +30,12 @@ export default function CreateFilmPage() {
     const [isAddingShowing, setIsAddingShowing] = useState(false);
     const [showings, setShowings] = useState<Showing[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm<Inputs>();
     const router = useRouter();
+
+    const featured_clip_1 = watch("videoClip1");
+    const featured_clip_2 = watch("videoClip2");
+    const featured_clip_3 = watch("videoClip3");
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         setIsLoading(true);
@@ -74,7 +78,7 @@ export default function CreateFilmPage() {
                 setIsLoading(false)
                 return router.push("admin/films");
             }
-            
+
         } catch (error) {
             setError(`Error creating film: ${error}`);
         }
@@ -100,13 +104,16 @@ export default function CreateFilmPage() {
                     </div>
                     <div className='flex flex-col gap-y-6 w-full border-b border-typography-black pb-6'>
                         <h1 className='text-5xl text-typography-black font-medium'>Featured clips</h1>
-                        <StyledFileInput
-                            id="videoClip1"
-                            label="Upload featured clip 1"
-                            register={register}
-                            required={true}
-                            error={errors.videoClip1}
-                        />
+                        <div className='flex justify-between items-center w-full gap-x-3'>
+                            <StyledFileInput
+                                id="videoClip1"
+                                label="Upload featured clip 1"
+                                register={register}
+                                required={true}
+                                error={errors.videoClip1}
+                            />
+                            {featured_clip_1 !== undefined && <FaCheck className="text-typography-black" size={12} />}
+                        </div>
                         <StyledFileInput
                             id="videoClip2"
                             label="Upload featured clip 2"
